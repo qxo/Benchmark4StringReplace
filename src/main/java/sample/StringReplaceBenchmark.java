@@ -29,7 +29,10 @@ import org.apache.commons.lang.StringUtils;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
+import org.openjdk.jmh.runner.options.Options;
+import org.openjdk.jmh.runner.options.OptionsBuilder;
 import org.osgl.util.IO;
 import org.osgl.util.S;
 
@@ -181,12 +184,9 @@ public class StringReplaceBenchmark {
 
 
     public static void main(String[] args) throws RunnerException {
-        Object o = new StringReplaceBenchmark().testOsglLong(new BenchmarkState());
-        System.out.println(o);
-//        Options opt = new OptionsBuilder().include(StringReplaceBenchmark.class.getSimpleName()).warmupIterations(5)
-//                .measurementIterations(5).forks(1).build();
-//        new Runner(opt).run();
-//		System.out.println(TEXT.replace(TGT, REPLACEMENT));
+        Options opt = new OptionsBuilder().include(StringReplaceBenchmark.class.getSimpleName()).warmupIterations(5)
+                .measurementIterations(5).forks(1).build();
+        new Runner(opt).run();
     }
 
 }
