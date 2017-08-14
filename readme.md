@@ -16,100 +16,237 @@ mvn clean package
 * List profilers -- `java -jar target/benchmarks.jar  -lprof `
 
 #run
+
+Command
+
 ```
 java -jar target/benchmarks.jar  StringReplaceBenchmark -wi 3 -i 6 -f 1 -tu ms
 ```
+
+Result
+
 ```
 Benchmark                                                Mode  Cnt       Score      Error   Units
-StringReplaceBenchmark.testFast                         thrpt    6    9452.604 ±  206.597  ops/ms
-StringReplaceBenchmark.testFastLong                     thrpt    6     141.205 ±    5.052  ops/ms
-StringReplaceBenchmark.testFastLongNoMatch              thrpt    6     338.768 ±    6.288  ops/ms
-StringReplaceBenchmark.testFastNoMatch                  thrpt    6   95299.407 ±  914.842  ops/ms
-StringReplaceBenchmark.testLang3StringUtils             thrpt    6    7180.628 ±  110.975  ops/ms
-StringReplaceBenchmark.testLang3StringUtilsLong         thrpt    6     149.292 ±    3.630  ops/ms
-StringReplaceBenchmark.testLang3StringUtilsLongNoMatch  thrpt    6     347.124 ±    3.906  ops/ms
-StringReplaceBenchmark.testLang3StringUtilsNoMatch      thrpt    6   86763.723 ± 1068.531  ops/ms
-StringReplaceBenchmark.testOsgl                         thrpt    6    8678.101 ± 1286.512  ops/ms
-StringReplaceBenchmark.testOsglLong                     thrpt    6     217.889 ±    6.731  ops/ms
-StringReplaceBenchmark.testOsglLongNoMatch              thrpt    6     407.895 ±    4.442  ops/ms
-StringReplaceBenchmark.testOsglNoMatch                  thrpt    6   29719.813 ±  531.590  ops/ms
-StringReplaceBenchmark.testString                       thrpt    6    2616.016 ±  220.651  ops/ms
-StringReplaceBenchmark.testStringLong                   thrpt    6      72.485 ±    2.366  ops/ms
-StringReplaceBenchmark.testStringLongNoMatch            thrpt    6     253.809 ±    9.510  ops/ms
-StringReplaceBenchmark.testStringNoMatch                thrpt    6    7099.968 ±  164.769  ops/ms
-StringReplaceBenchmark.testStringUtils                  thrpt    6    8178.607 ±  115.928  ops/ms
-StringReplaceBenchmark.testStringUtilsLong              thrpt    6     153.263 ±    5.699  ops/ms
-StringReplaceBenchmark.testStringUtilsLongNoMatch       thrpt    6     330.020 ±    7.464  ops/ms
-StringReplaceBenchmark.testStringUtilsNoMatch           thrpt    6  101255.351 ±  980.553  ops/ms
+StringReplaceBenchmark.testFast                         thrpt    6    9558.353 ±  154.062  ops/ms
+StringReplaceBenchmark.testFastLong                     thrpt    6     149.660 ±    3.147  ops/ms
+StringReplaceBenchmark.testFastLongNoMatch              thrpt    6     328.562 ±    4.251  ops/ms
+StringReplaceBenchmark.testFastNoMatch                  thrpt    6   99851.409 ± 5857.649  ops/ms
+StringReplaceBenchmark.testLang3StringUtils             thrpt    6    7092.984 ±  185.122  ops/ms
+StringReplaceBenchmark.testLang3StringUtilsLong         thrpt    6     152.580 ±    5.777  ops/ms
+StringReplaceBenchmark.testLang3StringUtilsLongNoMatch  thrpt    6     353.155 ±    4.134  ops/ms
+StringReplaceBenchmark.testLang3StringUtilsNoMatch      thrpt    6   87770.331 ± 1182.989  ops/ms
+StringReplaceBenchmark.testOsgl                         thrpt    6    8584.325 ±   72.625  ops/ms
+StringReplaceBenchmark.testOsglLong                     thrpt    6     223.589 ±    1.474  ops/ms
+StringReplaceBenchmark.testOsglLongNoMatch              thrpt    6     505.472 ±   13.480  ops/ms
+StringReplaceBenchmark.testOsglNoMatch                  thrpt    6  103388.380 ± 1142.023  ops/ms
+StringReplaceBenchmark.testString                       thrpt    6    2647.313 ±  251.928  ops/ms
+StringReplaceBenchmark.testStringLong                   thrpt    6      73.793 ±    2.871  ops/ms
+StringReplaceBenchmark.testStringLongNoMatch            thrpt    6     260.422 ±    3.556  ops/ms
+StringReplaceBenchmark.testStringNoMatch                thrpt    6    7113.214 ±  120.101  ops/ms
+StringReplaceBenchmark.testStringUtils                  thrpt    6    8399.156 ±  109.223  ops/ms
+StringReplaceBenchmark.testStringUtilsLong              thrpt    6     155.973 ±    2.731  ops/ms
+StringReplaceBenchmark.testStringUtilsLongNoMatch       thrpt    6     358.311 ±    6.930  ops/ms
+StringReplaceBenchmark.testStringUtilsNoMatch           thrpt    6  102227.568 ± 2394.978  ops/ms
 ```
 
+Command
 
 ```
 java -jar target/benchmarks.jar  StringReplaceBenchmark -wi 3 -i 6 -f 1  -bm thrpt,avgt -tu us
 ```
+
+Result
+
 ```
-Benchmark                                      Mode  Cnt  Score   Error   Units
-StringReplaceBenchmark.test4Osgl              thrpt    6  4.696 ± 0.070  ops/us
-StringReplaceBenchmark.test4String            thrpt    6  1.332 ± 0.160  ops/us
-StringReplaceBenchmark.test4StringUtils       thrpt    6  4.212 ± 0.091  ops/us
-StringReplaceBenchmark.test4fast              thrpt    6  4.895 ± 0.353  ops/us
-StringReplaceBenchmark.test4lang3StringUtils  thrpt    6  3.364 ± 0.027  ops/us
-StringReplaceBenchmark.test4Osgl               avgt    6  0.216 ± 0.009   us/op
-StringReplaceBenchmark.test4String             avgt    6  0.773 ± 0.294   us/op
-StringReplaceBenchmark.test4StringUtils        avgt    6  0.245 ± 0.022   us/op
-StringReplaceBenchmark.test4fast               avgt    6  0.188 ± 0.009   us/op
-StringReplaceBenchmark.test4lang3StringUtils   avgt    6  0.315 ± 0.007   us/op
+Benchmark                                                Mode  Cnt    Score    Error   Units
+StringReplaceBenchmark.testFast                         thrpt    6    9.217 ±  0.384  ops/us
+StringReplaceBenchmark.testFastLong                     thrpt    6    0.150 ±  0.004  ops/us
+StringReplaceBenchmark.testFastLongNoMatch              thrpt    6    0.326 ±  0.007  ops/us
+StringReplaceBenchmark.testFastNoMatch                  thrpt    6   87.262 ±  1.077  ops/us
+StringReplaceBenchmark.testLang3StringUtils             thrpt    6    6.980 ±  0.094  ops/us
+StringReplaceBenchmark.testLang3StringUtilsLong         thrpt    6    0.151 ±  0.003  ops/us
+StringReplaceBenchmark.testLang3StringUtilsLongNoMatch  thrpt    6    0.335 ±  0.004  ops/us
+StringReplaceBenchmark.testLang3StringUtilsNoMatch      thrpt    6  101.451 ±  1.316  ops/us
+StringReplaceBenchmark.testOsgl                         thrpt    6    8.637 ±  0.366  ops/us
+StringReplaceBenchmark.testOsglLong                     thrpt    6    0.221 ±  0.006  ops/us
+StringReplaceBenchmark.testOsglLongNoMatch              thrpt    6    0.502 ±  0.003  ops/us
+StringReplaceBenchmark.testOsglNoMatch                  thrpt    6  103.398 ±  1.540  ops/us
+StringReplaceBenchmark.testString                       thrpt    6    2.607 ±  0.203  ops/us
+StringReplaceBenchmark.testStringLong                   thrpt    6    0.075 ±  0.002  ops/us
+StringReplaceBenchmark.testStringLongNoMatch            thrpt    6    0.261 ±  0.004  ops/us
+StringReplaceBenchmark.testStringNoMatch                thrpt    6    7.272 ±  0.165  ops/us
+StringReplaceBenchmark.testStringUtils                  thrpt    6    8.054 ±  0.255  ops/us
+StringReplaceBenchmark.testStringUtilsLong              thrpt    6    0.155 ±  0.004  ops/us
+StringReplaceBenchmark.testStringUtilsLongNoMatch       thrpt    6    0.361 ±  0.007  ops/us
+StringReplaceBenchmark.testStringUtilsNoMatch           thrpt    6  102.746 ±  2.171  ops/us
+StringReplaceBenchmark.testFast                          avgt    6    0.107 ±  0.005   us/op
+StringReplaceBenchmark.testFastLong                      avgt    6    6.756 ±  0.164   us/op
+StringReplaceBenchmark.testFastLongNoMatch               avgt    6    2.985 ±  0.072   us/op
+StringReplaceBenchmark.testFastNoMatch                   avgt    6    0.010 ±  0.001   us/op
+StringReplaceBenchmark.testLang3StringUtils              avgt    6    0.142 ±  0.003   us/op
+StringReplaceBenchmark.testLang3StringUtilsLong          avgt    6    6.622 ±  0.266   us/op
+StringReplaceBenchmark.testLang3StringUtilsLongNoMatch   avgt    6    2.998 ±  0.048   us/op
+StringReplaceBenchmark.testLang3StringUtilsNoMatch       avgt    6    0.010 ±  0.001   us/op
+StringReplaceBenchmark.testOsgl                          avgt    6    0.115 ±  0.002   us/op
+StringReplaceBenchmark.testOsglLong                      avgt    6    4.560 ±  0.055   us/op
+StringReplaceBenchmark.testOsglLongNoMatch               avgt    6    1.996 ±  0.039   us/op
+StringReplaceBenchmark.testOsglNoMatch                   avgt    6    0.010 ±  0.001   us/op
+StringReplaceBenchmark.testString                        avgt    6    0.382 ±  0.039   us/op
+StringReplaceBenchmark.testStringLong                    avgt    6   13.498 ±  0.400   us/op
+StringReplaceBenchmark.testStringLongNoMatch             avgt    6    3.797 ±  0.069   us/op
+StringReplaceBenchmark.testStringNoMatch                 avgt    6    0.137 ±  0.003   us/op
+StringReplaceBenchmark.testStringUtils                   avgt    6    0.119 ±  0.003   us/op
+StringReplaceBenchmark.testStringUtilsLong               avgt    6    6.548 ±  0.140   us/op
+StringReplaceBenchmark.testStringUtilsLongNoMatch        avgt    6    2.983 ±  0.069   us/op
+StringReplaceBenchmark.testStringUtilsNoMatch            avgt    6    0.010 ±  0.001   us/op
 ```
+
+Command
 
 ```
 java -jar target/benchmarks.jar  StringReplaceBenchmark -wi 3 -i 6 -f 1 -prof gc
 ```
 
 ```
-Benchmark                                                                       Mode  Cnt        Score        Error   Units
-StringReplaceBenchmark.test4Osgl                                               thrpt    6  4737653.657 ±  98116.460   ops/s
-StringReplaceBenchmark.test4Osgl:·gc.alloc.rate                                thrpt    6     1228.683 ±     25.418  MB/sec
-StringReplaceBenchmark.test4Osgl:·gc.alloc.rate.norm                           thrpt    6      408.000 ±      0.001    B/op
-StringReplaceBenchmark.test4Osgl:·gc.churn.PS_Eden_Space                       thrpt    6     1312.367 ±    704.467  MB/sec
-StringReplaceBenchmark.test4Osgl:·gc.churn.PS_Eden_Space.norm                  thrpt    6      435.757 ±    231.955    B/op
-StringReplaceBenchmark.test4Osgl:·gc.churn.PS_Survivor_Space                   thrpt    6        0.069 ±      0.080  MB/sec
-StringReplaceBenchmark.test4Osgl:·gc.churn.PS_Survivor_Space.norm              thrpt    6        0.023 ±      0.026    B/op
-StringReplaceBenchmark.test4Osgl:·gc.count                                     thrpt    6       19.000               counts
-StringReplaceBenchmark.test4Osgl:·gc.time                                      thrpt    6       20.000                   ms
-StringReplaceBenchmark.test4String                                             thrpt    6  1324709.557 ±  22571.671   ops/s
-StringReplaceBenchmark.test4String:·gc.alloc.rate                              thrpt    6     1212.556 ±     20.726  MB/sec
-StringReplaceBenchmark.test4String:·gc.alloc.rate.norm                         thrpt    6     1440.000 ±      0.001    B/op
-StringReplaceBenchmark.test4String:·gc.churn.PS_Eden_Space                     thrpt    6     1221.226 ±    500.956  MB/sec
-StringReplaceBenchmark.test4String:·gc.churn.PS_Eden_Space.norm                thrpt    6     1450.689 ±    603.800    B/op
-StringReplaceBenchmark.test4String:·gc.churn.PS_Survivor_Space                 thrpt    6        0.062 ±      0.074  MB/sec
-StringReplaceBenchmark.test4String:·gc.churn.PS_Survivor_Space.norm            thrpt    6        0.074 ±      0.089    B/op
-StringReplaceBenchmark.test4String:·gc.count                                   thrpt    6       26.000               counts
-StringReplaceBenchmark.test4String:·gc.time                                    thrpt    6       24.000                   ms
-StringReplaceBenchmark.test4StringUtils                                        thrpt    6  3781943.748 ±  75046.418   ops/s
-StringReplaceBenchmark.test4StringUtils:·gc.alloc.rate                         thrpt    6     1192.358 ±     23.568  MB/sec
-StringReplaceBenchmark.test4StringUtils:·gc.alloc.rate.norm                    thrpt    6      496.000 ±      0.001    B/op
-StringReplaceBenchmark.test4StringUtils:·gc.churn.PS_Eden_Space                thrpt    6     1248.335 ±    337.017  MB/sec
-StringReplaceBenchmark.test4StringUtils:·gc.churn.PS_Eden_Space.norm           thrpt    6      519.457 ±    145.629    B/op
-StringReplaceBenchmark.test4StringUtils:·gc.churn.PS_Survivor_Space            thrpt    6        0.073 ±      0.121  MB/sec
-StringReplaceBenchmark.test4StringUtils:·gc.churn.PS_Survivor_Space.norm       thrpt    6        0.030 ±      0.050    B/op
-StringReplaceBenchmark.test4StringUtils:·gc.count                              thrpt    6       25.000               counts
-StringReplaceBenchmark.test4StringUtils:·gc.time                               thrpt    6       22.000                   ms
-StringReplaceBenchmark.test4fast                                               thrpt    6  4375516.774 ±  58662.515   ops/s
-StringReplaceBenchmark.test4fast:·gc.alloc.rate                                thrpt    6      600.764 ±      8.056  MB/sec
-StringReplaceBenchmark.test4fast:·gc.alloc.rate.norm                           thrpt    6      216.000 ±      0.001    B/op
-StringReplaceBenchmark.test4fast:·gc.churn.PS_Eden_Space                       thrpt    6      609.346 ±    142.370  MB/sec
-StringReplaceBenchmark.test4fast:·gc.churn.PS_Eden_Space.norm                  thrpt    6      219.158 ±     53.998    B/op
-StringReplaceBenchmark.test4fast:·gc.churn.PS_Survivor_Space                   thrpt    6        0.101 ±      0.101  MB/sec
-StringReplaceBenchmark.test4fast:·gc.churn.PS_Survivor_Space.norm              thrpt    6        0.036 ±      0.036    B/op
-StringReplaceBenchmark.test4fast:·gc.count                                     thrpt    6       52.000               counts
-StringReplaceBenchmark.test4fast:·gc.time                                      thrpt    6       46.000                   ms
-StringReplaceBenchmark.test4lang3StringUtils                                   thrpt    6  3077705.258 ± 246133.484   ops/s
-StringReplaceBenchmark.test4lang3StringUtils:·gc.alloc.rate                    thrpt    6      970.373 ±     77.640  MB/sec
-StringReplaceBenchmark.test4lang3StringUtils:·gc.alloc.rate.norm               thrpt    6      496.000 ±      0.001    B/op
-StringReplaceBenchmark.test4lang3StringUtils:·gc.churn.PS_Eden_Space           thrpt    6      893.991 ±    751.504  MB/sec
-StringReplaceBenchmark.test4lang3StringUtils:·gc.churn.PS_Eden_Space.norm      thrpt    6      458.328 ±    398.802    B/op
-StringReplaceBenchmark.test4lang3StringUtils:·gc.churn.PS_Survivor_Space       thrpt    6        0.017 ±      0.078  MB/sec
-StringReplaceBenchmark.test4lang3StringUtils:·gc.churn.PS_Survivor_Space.norm  thrpt    6        0.009 ±      0.040    B/op
-StringReplaceBenchmark.test4lang3StringUtils:·gc.count                         thrpt    6        7.000               counts
-StringReplaceBenchmark.test4lang3StringUtils:·gc.time                          thrpt    6        5.000                   ms
+Benchmark                                                                          Mode  Cnt          Score         Error   Units
+StringReplaceBenchmark.testFast                                                   thrpt    6    9507629.408 ±  257231.050   ops/s
+StringReplaceBenchmark.testFast:·gc.alloc.rate                                    thrpt    6       1063.643 ±      28.741  MB/sec
+StringReplaceBenchmark.testFast:·gc.alloc.rate.norm                               thrpt    6        176.000 ±       0.001    B/op
+StringReplaceBenchmark.testFast:·gc.churn.PS_Eden_Space                           thrpt    6       1059.443 ±     369.876  MB/sec
+StringReplaceBenchmark.testFast:·gc.churn.PS_Eden_Space.norm                      thrpt    6        175.270 ±      60.127    B/op
+StringReplaceBenchmark.testFast:·gc.churn.PS_Survivor_Space                       thrpt    6          0.090 ±       0.151  MB/sec
+StringReplaceBenchmark.testFast:·gc.churn.PS_Survivor_Space.norm                  thrpt    6          0.015 ±       0.025    B/op
+StringReplaceBenchmark.testFast:·gc.count                                         thrpt    6         19.000                counts
+StringReplaceBenchmark.testFast:·gc.time                                          thrpt    6         31.000                    ms
+StringReplaceBenchmark.testFastLong                                               thrpt    6     146077.646 ±    2555.991   ops/s
+StringReplaceBenchmark.testFastLong:·gc.alloc.rate                                thrpt    6       3489.090 ±      61.106  MB/sec
+StringReplaceBenchmark.testFastLong:·gc.alloc.rate.norm                           thrpt    6      37576.003 ±       0.001    B/op
+StringReplaceBenchmark.testFastLong:·gc.churn.PS_Eden_Space                       thrpt    6       3488.876 ±     600.472  MB/sec
+StringReplaceBenchmark.testFastLong:·gc.churn.PS_Eden_Space.norm                  thrpt    6      37571.855 ±    6331.491    B/op
+StringReplaceBenchmark.testFastLong:·gc.churn.PS_Survivor_Space                   thrpt    6          0.090 ±       0.088  MB/sec
+StringReplaceBenchmark.testFastLong:·gc.churn.PS_Survivor_Space.norm              thrpt    6          0.972 ±       0.948    B/op
+StringReplaceBenchmark.testFastLong:·gc.count                                     thrpt    6         32.000                counts
+StringReplaceBenchmark.testFastLong:·gc.time                                      thrpt    6         57.000                    ms
+StringReplaceBenchmark.testFastLongNoMatch                                        thrpt    6     330830.516 ±    5232.472   ops/s
+StringReplaceBenchmark.testFastLongNoMatch:·gc.alloc.rate                         thrpt    6         ≈ 10⁻⁴                MB/sec
+StringReplaceBenchmark.testFastLongNoMatch:·gc.alloc.rate.norm                    thrpt    6          0.001 ±       0.001    B/op
+StringReplaceBenchmark.testFastLongNoMatch:·gc.count                              thrpt    6            ≈ 0                counts
+StringReplaceBenchmark.testFastNoMatch                                            thrpt    6   96282586.637 ± 1229613.367   ops/s
+StringReplaceBenchmark.testFastNoMatch:·gc.alloc.rate                             thrpt    6         ≈ 10⁻⁴                MB/sec
+StringReplaceBenchmark.testFastNoMatch:·gc.alloc.rate.norm                        thrpt    6         ≈ 10⁻⁵                  B/op
+StringReplaceBenchmark.testFastNoMatch:·gc.count                                  thrpt    6            ≈ 0                counts
+StringReplaceBenchmark.testLang3StringUtils                                       thrpt    6    6574272.605 ±  165992.655   ops/s
+StringReplaceBenchmark.testLang3StringUtils:·gc.alloc.rate                        thrpt    6       1136.658 ±      28.692  MB/sec
+StringReplaceBenchmark.testLang3StringUtils:·gc.alloc.rate.norm                   thrpt    6        272.000 ±       0.001    B/op
+StringReplaceBenchmark.testLang3StringUtils:·gc.churn.PS_Eden_Space               thrpt    6       1245.714 ±    1051.241  MB/sec
+StringReplaceBenchmark.testLang3StringUtils:·gc.churn.PS_Eden_Space.norm          thrpt    6        298.303 ±     253.662    B/op
+StringReplaceBenchmark.testLang3StringUtils:·gc.churn.PS_Survivor_Space           thrpt    6          0.052 ±       0.142  MB/sec
+StringReplaceBenchmark.testLang3StringUtils:·gc.churn.PS_Survivor_Space.norm      thrpt    6          0.012 ±       0.034    B/op
+StringReplaceBenchmark.testLang3StringUtils:·gc.count                             thrpt    6         10.000                counts
+StringReplaceBenchmark.testLang3StringUtils:·gc.time                              thrpt    6         15.000                    ms
+StringReplaceBenchmark.testLang3StringUtilsLong                                   thrpt    6     148275.430 ±    1900.805   ops/s
+StringReplaceBenchmark.testLang3StringUtilsLong:·gc.alloc.rate                    thrpt    6       3593.826 ±      45.425  MB/sec
+StringReplaceBenchmark.testLang3StringUtilsLong:·gc.alloc.rate.norm               thrpt    6      38128.003 ±       0.001    B/op
+StringReplaceBenchmark.testLang3StringUtilsLong:·gc.churn.PS_Eden_Space           thrpt    6       3558.193 ±     691.545  MB/sec
+StringReplaceBenchmark.testLang3StringUtilsLong:·gc.churn.PS_Eden_Space.norm      thrpt    6      37748.872 ±    7263.184    B/op
+StringReplaceBenchmark.testLang3StringUtilsLong:·gc.churn.PS_Survivor_Space       thrpt    6          0.097 ±       0.071  MB/sec
+StringReplaceBenchmark.testLang3StringUtilsLong:·gc.churn.PS_Survivor_Space.norm  thrpt    6          1.032 ±       0.758    B/op
+StringReplaceBenchmark.testLang3StringUtilsLong:·gc.count                         thrpt    6         48.000                counts
+StringReplaceBenchmark.testLang3StringUtilsLong:·gc.time                          thrpt    6         55.000                    ms
+StringReplaceBenchmark.testLang3StringUtilsLongNoMatch                            thrpt    6     348833.747 ±   21105.330   ops/s
+StringReplaceBenchmark.testLang3StringUtilsLongNoMatch:·gc.alloc.rate             thrpt    6         ≈ 10⁻⁴                MB/sec
+StringReplaceBenchmark.testLang3StringUtilsLongNoMatch:·gc.alloc.rate.norm        thrpt    6          0.001 ±       0.001    B/op
+StringReplaceBenchmark.testLang3StringUtilsLongNoMatch:·gc.count                  thrpt    6            ≈ 0                counts
+StringReplaceBenchmark.testLang3StringUtilsNoMatch                                thrpt    6  101905494.571 ±  939964.698   ops/s
+StringReplaceBenchmark.testLang3StringUtilsNoMatch:·gc.alloc.rate                 thrpt    6         ≈ 10⁻⁴                MB/sec
+StringReplaceBenchmark.testLang3StringUtilsNoMatch:·gc.alloc.rate.norm            thrpt    6         ≈ 10⁻⁵                  B/op
+StringReplaceBenchmark.testLang3StringUtilsNoMatch:·gc.count                      thrpt    6            ≈ 0                counts
+StringReplaceBenchmark.testOsgl                                                   thrpt    6    8740630.646 ±   90297.792   ops/s
+StringReplaceBenchmark.testOsgl:·gc.alloc.rate                                    thrpt    6       1200.065 ±      12.364  MB/sec
+StringReplaceBenchmark.testOsgl:·gc.alloc.rate.norm                               thrpt    6        216.000 ±       0.001    B/op
+StringReplaceBenchmark.testOsgl:·gc.churn.PS_Eden_Space                           thrpt    6       1164.283 ±     901.012  MB/sec
+StringReplaceBenchmark.testOsgl:·gc.churn.PS_Eden_Space.norm                      thrpt    6        209.614 ±     162.915    B/op
+StringReplaceBenchmark.testOsgl:·gc.churn.PS_Survivor_Space                       thrpt    6          0.045 ±       0.145  MB/sec
+StringReplaceBenchmark.testOsgl:·gc.churn.PS_Survivor_Space.norm                  thrpt    6          0.008 ±       0.026    B/op
+StringReplaceBenchmark.testOsgl:·gc.count                                         thrpt    6         10.000                counts
+StringReplaceBenchmark.testOsgl:·gc.time                                          thrpt    6         11.000                    ms
+StringReplaceBenchmark.testOsglLong                                               thrpt    6     221726.764 ±    3902.016   ops/s
+StringReplaceBenchmark.testOsglLong:·gc.alloc.rate                                thrpt    6       1780.345 ±      31.327  MB/sec
+StringReplaceBenchmark.testOsglLong:·gc.alloc.rate.norm                           thrpt    6      12632.002 ±       0.001    B/op
+StringReplaceBenchmark.testOsglLong:·gc.churn.PS_Eden_Space                       thrpt    6       1770.311 ±     700.117  MB/sec
+StringReplaceBenchmark.testOsglLong:·gc.churn.PS_Eden_Space.norm                  thrpt    6      12564.665 ±    5046.848    B/op
+StringReplaceBenchmark.testOsglLong:·gc.churn.PS_Survivor_Space                   thrpt    6          0.080 ±       0.094  MB/sec
+StringReplaceBenchmark.testOsglLong:·gc.churn.PS_Survivor_Space.norm              thrpt    6          0.566 ±       0.664    B/op
+StringReplaceBenchmark.testOsglLong:·gc.count                                     thrpt    6         21.000                counts
+StringReplaceBenchmark.testOsglLong:·gc.time                                      thrpt    6         21.000                    ms
+StringReplaceBenchmark.testOsglLongNoMatch                                        thrpt    6     502256.739 ±    8146.266   ops/s
+StringReplaceBenchmark.testOsglLongNoMatch:·gc.alloc.rate                         thrpt    6         ≈ 10⁻⁴                MB/sec
+StringReplaceBenchmark.testOsglLongNoMatch:·gc.alloc.rate.norm                    thrpt    6          0.001 ±       0.001    B/op
+StringReplaceBenchmark.testOsglLongNoMatch:·gc.count                              thrpt    6            ≈ 0                counts
+StringReplaceBenchmark.testOsglNoMatch                                            thrpt    6  103276343.019 ± 2092464.316   ops/s
+StringReplaceBenchmark.testOsglNoMatch:·gc.alloc.rate                             thrpt    6         ≈ 10⁻⁴                MB/sec
+StringReplaceBenchmark.testOsglNoMatch:·gc.alloc.rate.norm                        thrpt    6         ≈ 10⁻⁵                  B/op
+StringReplaceBenchmark.testOsglNoMatch:·gc.count                                  thrpt    6            ≈ 0                counts
+StringReplaceBenchmark.testString                                                 thrpt    6    2638292.353 ±   65681.341   ops/s
+StringReplaceBenchmark.testString:·gc.alloc.rate                                  thrpt    6       1583.044 ±      39.416  MB/sec
+StringReplaceBenchmark.testString:·gc.alloc.rate.norm                             thrpt    6        944.000 ±       0.001    B/op
+StringReplaceBenchmark.testString:·gc.churn.PS_Eden_Space                         thrpt    6       1676.331 ±     516.746  MB/sec
+StringReplaceBenchmark.testString:·gc.churn.PS_Eden_Space.norm                    thrpt    6        999.814 ±     311.491    B/op
+StringReplaceBenchmark.testString:·gc.churn.PS_Survivor_Space                     thrpt    6          0.059 ±       0.057  MB/sec
+StringReplaceBenchmark.testString:·gc.churn.PS_Survivor_Space.norm                thrpt    6          0.035 ±       0.034    B/op
+StringReplaceBenchmark.testString:·gc.count                                       thrpt    6         15.000                counts
+StringReplaceBenchmark.testString:·gc.time                                        thrpt    6         14.000                    ms
+StringReplaceBenchmark.testStringLong                                             thrpt    6      66672.461 ±    1502.494   ops/s
+StringReplaceBenchmark.testStringLong:·gc.alloc.rate                              thrpt    6       2606.843 ±      58.844  MB/sec
+StringReplaceBenchmark.testStringLong:·gc.alloc.rate.norm                         thrpt    6      61512.007 ±       0.001    B/op
+StringReplaceBenchmark.testStringLong:·gc.churn.PS_Eden_Space                     thrpt    6       2589.409 ±     806.319  MB/sec
+StringReplaceBenchmark.testStringLong:·gc.churn.PS_Eden_Space.norm                thrpt    6      61075.297 ±   18279.463    B/op
+StringReplaceBenchmark.testStringLong:·gc.churn.PS_Survivor_Space                 thrpt    6          0.100 ±       0.123  MB/sec
+StringReplaceBenchmark.testStringLong:·gc.churn.PS_Survivor_Space.norm            thrpt    6          2.355 ±       2.940    B/op
+StringReplaceBenchmark.testStringLong:·gc.count                                   thrpt    6         41.000                counts
+StringReplaceBenchmark.testStringLong:·gc.time                                    thrpt    6         39.000                    ms
+StringReplaceBenchmark.testStringLongNoMatch                                      thrpt    6     262992.187 ±    3782.514   ops/s
+StringReplaceBenchmark.testStringLongNoMatch:·gc.alloc.rate                       thrpt    6        201.940 ±       2.895  MB/sec
+StringReplaceBenchmark.testStringLongNoMatch:·gc.alloc.rate.norm                  thrpt    6       1208.002 ±       0.001    B/op
+StringReplaceBenchmark.testStringLongNoMatch:·gc.churn.PS_Eden_Space              thrpt    6        200.486 ±     175.060  MB/sec
+StringReplaceBenchmark.testStringLongNoMatch:·gc.churn.PS_Eden_Space.norm         thrpt    6       1200.451 ±    1060.031    B/op
+StringReplaceBenchmark.testStringLongNoMatch:·gc.churn.PS_Survivor_Space          thrpt    6          0.191 ±       1.004  MB/sec
+StringReplaceBenchmark.testStringLongNoMatch:·gc.churn.PS_Survivor_Space.norm     thrpt    6          1.139 ±       5.975    B/op
+StringReplaceBenchmark.testStringLongNoMatch:·gc.count                            thrpt    6          9.000                counts
+StringReplaceBenchmark.testStringLongNoMatch:·gc.time                             thrpt    6         11.000                    ms
+StringReplaceBenchmark.testStringNoMatch                                          thrpt    6    5877538.796 ±   78720.009   ops/s
+StringReplaceBenchmark.testStringNoMatch:·gc.alloc.rate                           thrpt    6       2211.622 ±      29.616  MB/sec
+StringReplaceBenchmark.testStringNoMatch:·gc.alloc.rate.norm                      thrpt    6        592.000 ±       0.001    B/op
+StringReplaceBenchmark.testStringNoMatch:·gc.churn.PS_Eden_Space                  thrpt    6       2291.496 ±     444.533  MB/sec
+StringReplaceBenchmark.testStringNoMatch:·gc.churn.PS_Eden_Space.norm             thrpt    6        613.454 ±     122.465    B/op
+StringReplaceBenchmark.testStringNoMatch:·gc.churn.PS_Survivor_Space              thrpt    6          0.090 ±       0.095  MB/sec
+StringReplaceBenchmark.testStringNoMatch:·gc.churn.PS_Survivor_Space.norm         thrpt    6          0.024 ±       0.025    B/op
+StringReplaceBenchmark.testStringNoMatch:·gc.count                                thrpt    6         33.000                counts
+StringReplaceBenchmark.testStringNoMatch:·gc.time                                 thrpt    6         28.000                    ms
+StringReplaceBenchmark.testStringUtils                                            thrpt    6    8096507.978 ±  146092.935   ops/s
+StringReplaceBenchmark.testStringUtils:·gc.alloc.rate                             thrpt    6       1399.813 ±      25.264  MB/sec
+StringReplaceBenchmark.testStringUtils:·gc.alloc.rate.norm                        thrpt    6        272.000 ±       0.001    B/op
+StringReplaceBenchmark.testStringUtils:·gc.churn.PS_Eden_Space                    thrpt    6       1454.081 ±    1243.149  MB/sec
+StringReplaceBenchmark.testStringUtils:·gc.churn.PS_Eden_Space.norm               thrpt    6        282.338 ±     240.523    B/op
+StringReplaceBenchmark.testStringUtils:·gc.churn.PS_Survivor_Space                thrpt    6          0.052 ±       0.080  MB/sec
+StringReplaceBenchmark.testStringUtils:·gc.churn.PS_Survivor_Space.norm           thrpt    6          0.010 ±       0.016    B/op
+StringReplaceBenchmark.testStringUtils:·gc.count                                  thrpt    6         13.000                counts
+StringReplaceBenchmark.testStringUtils:·gc.time                                   thrpt    6         11.000                    ms
+StringReplaceBenchmark.testStringUtilsLong                                        thrpt    6     153164.208 ±    4571.822   ops/s
+StringReplaceBenchmark.testStringUtilsLong:·gc.alloc.rate                         thrpt    6       3712.087 ±     110.837  MB/sec
+StringReplaceBenchmark.testStringUtilsLong:·gc.alloc.rate.norm                    thrpt    6      38128.003 ±       0.001    B/op
+StringReplaceBenchmark.testStringUtilsLong:·gc.churn.PS_Eden_Space                thrpt    6       3708.625 ±     736.179  MB/sec
+StringReplaceBenchmark.testStringUtilsLong:·gc.churn.PS_Eden_Space.norm           thrpt    6      38078.187 ±    6695.783    B/op
+StringReplaceBenchmark.testStringUtilsLong:·gc.churn.PS_Survivor_Space            thrpt    6          0.125 ±       0.111  MB/sec
+StringReplaceBenchmark.testStringUtilsLong:·gc.churn.PS_Survivor_Space.norm       thrpt    6          1.285 ±       1.158    B/op
+StringReplaceBenchmark.testStringUtilsLong:·gc.count                              thrpt    6         46.000                counts
+StringReplaceBenchmark.testStringUtilsLong:·gc.time                               thrpt    6         47.000                    ms
+StringReplaceBenchmark.testStringUtilsLongNoMatch                                 thrpt    6     334975.849 ±    5601.871   ops/s
+StringReplaceBenchmark.testStringUtilsLongNoMatch:·gc.alloc.rate                  thrpt    6         ≈ 10⁻⁴                MB/sec
+StringReplaceBenchmark.testStringUtilsLongNoMatch:·gc.alloc.rate.norm             thrpt    6          0.001 ±       0.001    B/op
+StringReplaceBenchmark.testStringUtilsLongNoMatch:·gc.count                       thrpt    6            ≈ 0                counts
+StringReplaceBenchmark.testStringUtilsNoMatch                                     thrpt    6  101780186.632 ± 1782431.242   ops/s
+StringReplaceBenchmark.testStringUtilsNoMatch:·gc.alloc.rate                      thrpt    6         ≈ 10⁻⁴                MB/sec
+StringReplaceBenchmark.testStringUtilsNoMatch:·gc.alloc.rate.norm                 thrpt    6         ≈ 10⁻⁵                  B/op
+StringReplaceBenchmark.testStringUtilsNoMatch:·gc.count                           thrpt    6            ≈ 0                counts
 ```

@@ -49,7 +49,7 @@ public class StringReplaceBenchmark {
     public static final String REP_LONG = "appearance";
     public static final String TEXT_LONG = IO.readContentAsString(StringReplaceBenchmark.class.getResource("/long_str.txt"));
 
-    @State(Scope.Benchmark)
+    @State(Scope.Thread)
     public static class BenchmarkState {
         volatile private String str = TEXT;
         volatile private String strLong = TEXT_LONG;
