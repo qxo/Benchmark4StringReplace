@@ -21,7 +21,7 @@ Benchmark result
 | :---         |   ---: |        ---: |             ---: |  ---: |  ---: |
 | short text | 2647.313/ms | 8399.156/ms | 7092.984/ms | 8584.325/ms | **9558.353/ms** |
 | long text | 73.793/ms | 155.973/ms | 152.580/ms | **223.589/ms** | 149.660/ms |
-| short text no match | 7113.214/ms | 102227.568/ms | 87770.331/ms | **103388.380/ms** | 99851.409 |
+| short text no match | 7113.214/ms | 102227.568/ms | 87770.331/ms | **103388.380/ms** | 99851.409/ms |
 | long text no match | 260.422/ms | 358.311/ms | 353.155/ms | **505.472/ms** | 328.562/ms |
 
 Benchmark GC count
@@ -291,4 +291,4 @@ StringReplaceBenchmark.testStringUtilsNoMatch:·gc.count                        
 * http://java-performance.info/jmh/
 * http://java-performance.info/introduction-jmh-profilers/
 * http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/
-
+* https://github.com/greenlaw110/Benchmark4StringReplace/blob/master/src/main/java/sample/StringReplaceBenchmark.java
