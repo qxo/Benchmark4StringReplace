@@ -13,3 +13,18 @@ buildNumber.properties
 .settings
 # Avoid ignoring Maven wrapper jar file (.jar files are usually ignored)
 !/.mvn/wrapper/maven-wrapper.jar
+*.class
+.classpath
+.project
+.settings
+# Package Files #
+*.jar
+*.war
+*.ear
+lib
+target
+.idea
+classes
+*.iml
+deploy
+.DS_Store

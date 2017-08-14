@@ -31,6 +31,7 @@ import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+import org.osgl.util.S;
 
 //https://stackoverflow.com/questions/16228992/commons-lang-stringutils-replace-performance-vs-string-replace
 public class StringReplaceBenchmark {
@@ -56,6 +57,11 @@ public class StringReplaceBenchmark {
 	@Benchmark
 	public Object test4lang3StringUtils(BenchmarkState state) {
 		return org.apache.commons.lang3.StringUtils.replace(state.str, "A", "B");
+	}
+
+	@Benchmark
+	public Object test4Osgl(BenchmarkState state) {
+		return S.have(state.str).replace("A").with("B");
 	}
 	
 
