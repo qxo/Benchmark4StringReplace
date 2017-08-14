@@ -20,12 +20,27 @@ mvn clean package
 java -jar target/benchmarks.jar  StringReplaceBenchmark -wi 3 -i 6 -f 1 -tu ms
 ```
 ```
-Benchmark                                      Mode  Cnt     Score     Error   Units
-StringReplaceBenchmark.test4Osgl              thrpt    6  4828.043 ± 255.029  ops/ms
-StringReplaceBenchmark.test4String            thrpt    6  1349.007 ± 163.476  ops/ms
-StringReplaceBenchmark.test4StringUtils       thrpt    6  4181.067 ± 434.761  ops/ms
-StringReplaceBenchmark.test4fast              thrpt    6  5328.963 ±  92.833  ops/ms
-StringReplaceBenchmark.test4lang3StringUtils  thrpt    6  3250.641 ±  48.394  ops/ms
+Benchmark                                                Mode  Cnt       Score      Error   Units
+StringReplaceBenchmark.testFast                         thrpt    6    9452.604 ±  206.597  ops/ms
+StringReplaceBenchmark.testFastLong                     thrpt    6     141.205 ±    5.052  ops/ms
+StringReplaceBenchmark.testFastLongNoMatch              thrpt    6     338.768 ±    6.288  ops/ms
+StringReplaceBenchmark.testFastNoMatch                  thrpt    6   95299.407 ±  914.842  ops/ms
+StringReplaceBenchmark.testLang3StringUtils             thrpt    6    7180.628 ±  110.975  ops/ms
+StringReplaceBenchmark.testLang3StringUtilsLong         thrpt    6     149.292 ±    3.630  ops/ms
+StringReplaceBenchmark.testLang3StringUtilsLongNoMatch  thrpt    6     347.124 ±    3.906  ops/ms
+StringReplaceBenchmark.testLang3StringUtilsNoMatch      thrpt    6   86763.723 ± 1068.531  ops/ms
+StringReplaceBenchmark.testOsgl                         thrpt    6    8678.101 ± 1286.512  ops/ms
+StringReplaceBenchmark.testOsglLong                     thrpt    6     217.889 ±    6.731  ops/ms
+StringReplaceBenchmark.testOsglLongNoMatch              thrpt    6     407.895 ±    4.442  ops/ms
+StringReplaceBenchmark.testOsglNoMatch                  thrpt    6   29719.813 ±  531.590  ops/ms
+StringReplaceBenchmark.testString                       thrpt    6    2616.016 ±  220.651  ops/ms
+StringReplaceBenchmark.testStringLong                   thrpt    6      72.485 ±    2.366  ops/ms
+StringReplaceBenchmark.testStringLongNoMatch            thrpt    6     253.809 ±    9.510  ops/ms
+StringReplaceBenchmark.testStringNoMatch                thrpt    6    7099.968 ±  164.769  ops/ms
+StringReplaceBenchmark.testStringUtils                  thrpt    6    8178.607 ±  115.928  ops/ms
+StringReplaceBenchmark.testStringUtilsLong              thrpt    6     153.263 ±    5.699  ops/ms
+StringReplaceBenchmark.testStringUtilsLongNoMatch       thrpt    6     330.020 ±    7.464  ops/ms
+StringReplaceBenchmark.testStringUtilsNoMatch           thrpt    6  101255.351 ±  980.553  ops/ms
 ```
 
 
