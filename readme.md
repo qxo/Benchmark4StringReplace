@@ -1,21 +1,54 @@
-JMH benchmark for String replace
-================================================
-ref: 
-* http://openjdk.java.net/projects/code-tools/jmh
-* http://java-performance.info/jmh/
-* http://java-performance.info/introduction-jmh-profilers/
-* http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/
+# JMH benchmark for String replace
 
-#build jar
+This project benchmark String replacement performance with separate common implementations
+
+* String - JDK String replacement
+* StringUtils - Commons Lang StringUtils
+* Lang3StringUtils - Commons Lang 3 StringUtils
+* OSGL - [OSGL Java tool (2.0.0-SNAPSHOT)](https://github.com/osglworks/java-tool/tree/develop)
+* Fast - a [built in](https://github.com/greenlaw110/Benchmark4StringReplace/blob/master/src/main/java/sample/StringReplaceBenchmark.java#L159) fast string replace function
+
+The project measures String replacement in several use cases:
+
+* Short text - replace `AA` in `AAAAAAAAAABBB` to `B`
+* Short text no match - replace `XYZ` in `AAAAAAAAAABBB` to `B`
+* Long text - replace `occurrence` in [this file content](https://github.com/greenlaw110/Benchmark4StringReplace/blob/master/src/main/resources/long_str.txt) to `appearance`
+* Long text no match - replace `aaaxyz0001` in [this file content](https://github.com/greenlaw110/Benchmark4StringReplace/blob/master/src/main/resources/long_str.txt) to `appearance`
+
+Benchmark result
+
+| measure item | String | StringUtils | Lang3StringUtils | OSGL  | Fast  |
+| :---         |   ---: |        ---: |             ---: |  ---: |  ---: |
+| short text | 2647.313/ms | 8399.156/ms | 7092.984/ms | 8584.325/ms | **9558.353/ms** |
+| long text | 73.793/ms | 155.973/ms | 152.580/ms | **223.589/ms** | 149.660/ms |
+| short text no match | 7113.214/ms | 102227.568/ms | 87770.331/ms | **103388.380/ms** | 99851.409 |
+| long text no match | 260.422/ms | 358.311/ms | 353.155/ms | **505.472/ms** | 328.562/ms |
+
+Benchmark GC count
+
+| measure item | String | StringUtils | Lang3StringUtils | OSGL  | Fast  |
+| :---         |   ---: |        ---: |             ---: |  ---: |  ---: |
+| short text | 15 | 13 | 10 | 10 | 19 |
+| long text | 41 | 46 | 48 | **21** | 32 |
+| short text no match | 9 | 0 | 0 | 0 | 0 |
+| long text no match | 33 | 0 | 0 | 0 | 0 |
+
+## Run the project
+
+build jar
+
 ```
 mvn clean package
 ```
 
-#get help from cmd `java -jar target/benchmarks.jar  -h`
+get help from cmd `java -jar target/benchmarks.jar  -h`
+
 * List matching benchmarks -- `java -jar target/benchmarks.jar -l `
 * List profilers -- `java -jar target/benchmarks.jar  -lprof `
 
-#run
+## Local environment test results
+
+My local environment is a toshiba laptop with i7-4700MQ CPU, 16GB RAM and 250GB SSD
 
 Command
 
@@ -250,3 +283,12 @@ StringReplaceBenchmark.testStringUtilsNoMatch:·gc.alloc.rate                   
 StringReplaceBenchmark.testStringUtilsNoMatch:·gc.alloc.rate.norm                 thrpt    6         ≈ 10⁻⁵                  B/op
 StringReplaceBenchmark.testStringUtilsNoMatch:·gc.count                           thrpt    6            ≈ 0                counts
 ```
+
+
+## References
+
+* http://openjdk.java.net/projects/code-tools/jmh
+* http://java-performance.info/jmh/
+* http://java-performance.info/introduction-jmh-profilers/
+* http://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/
+
