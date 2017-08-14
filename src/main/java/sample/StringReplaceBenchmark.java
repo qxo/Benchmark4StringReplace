@@ -35,10 +35,11 @@ import org.osgl.util.S;
 
 //https://stackoverflow.com/questions/16228992/commons-lang-stringutils-replace-performance-vs-string-replace
 public class StringReplaceBenchmark {
-    
-    
-    
-    @State(Scope.Thread)
+
+	public static final String TGT = "A";
+	public static final String REPLACEMENT = "B";
+
+	@State(Scope.Thread)
     public static class BenchmarkState {
         volatile private String str = "AAAAAAAAAAAAABBBB";
 
@@ -46,28 +47,28 @@ public class StringReplaceBenchmark {
     
 	@Benchmark
 	public Object test4String(BenchmarkState state) {
-		return state.str.replace("A", "B");
+		return state.str.replace(TGT, REPLACEMENT);
 	}
 
 	@Benchmark
 	public Object test4StringUtils(BenchmarkState state) {
-		return StringUtils.replace(state.str, "A", "B");
+		return StringUtils.replace(state.str, TGT, REPLACEMENT);
 	}
 
 	@Benchmark
 	public Object test4lang3StringUtils(BenchmarkState state) {
-		return org.apache.commons.lang3.StringUtils.replace(state.str, "A", "B");
+		return org.apache.commons.lang3.StringUtils.replace(state.str, TGT, REPLACEMENT);
 	}
 
 	@Benchmark
 	public Object test4Osgl(BenchmarkState state) {
-		return S.have(state.str).replace("A").with("B");
+		return S.have(state.str).replace(TGT).with(REPLACEMENT);
 	}
 	
 
 	@Benchmark
 	public Object test4fast(BenchmarkState state) {
-		return replace(state.str, "A", "B");
+		return replace(state.str, TGT, REPLACEMENT);
 	}
     
 	public static String replace (String source, String os, String ns) {
