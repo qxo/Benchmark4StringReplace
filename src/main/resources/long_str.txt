@@ -1,0 +1,153 @@
+Searching characters and substring in a String in Java
+Searching a character in the String
+
+indexOf(char c) : It searches the index of specified character within a given string. It starts searching from beginning to the end of the string (from left to right) and returns the corresponding index if found otherwise returns -1.
+Note: If given string contains multiple occurrence of specified character then it returns index of only first occurrence of specified character.
+Syntax:
+int indexOf(char c)
+// Accepts character as argument, Returns index of
+// the first occurrence of specified character
+lastIndexOf(char c): It starts searching backward from end of the string and returns the index of specified character whenever it is encountered.
+Syntax:
+public int lastIndexOf(char c)
+// Accepts character as argument, Returns an
+// index of the last occurrence specified
+// character
+IndexOf(char c, int indexFrom): It starts searching forward from the specified index in the string and returns the corresponding index when the specified character is encountered otherwise returns -1. Note: The returned index must be greater than or equal to the specified index.
+Syntax:
+public int IndexOf(char c, int indexFrom)
+char: character to be searched.
+indexfrom : an integer from where searching
+// Returns an index of specified character that
+// appeared at or after the specified index in
+// forward direction
+lastIndexOf(char c, int fromIndex): It starts searching backward from the specified index in the string. And returns the corresponding index when the specified character is encountered otherwise returns -1.
+Note: The returned index must be less than or equal to the specified index.
+Syntax:
+public int lastIndexOf(char c, int fromIndex)
+charAt(int indexNumber): Returns the character existing at the specified index, indexNumber in the given string. If the specified index number does not exist in the string, the method throws an unchecked exception, StringIndexOutOfBoundsException.
+Syntax:
+char charAt(int indexNumber)
+// Java program to illustrate to find a character
+// in the string.
+import java.io.*;
+
+class GFG
+{
+  public static void main (String[] args)
+  {
+    // This is a string in which a character
+    // to be searched.
+    String str = "GeeksforGeeks is a computer science portal";
+
+    // Returns index of first occurrence of character.
+    int firstIndex = str.indexOf('s');
+    System.out.println("First occurrence of char 's'" +
+                       " is found at : " + firstIndex);
+
+    // Returns index of last occurrence specified character.
+    int lastIndex = str.lastIndexOf('s');
+    System.out.println("Last occurrence of char 's' is" +
+                       " found at : " + lastIndex);
+
+    // Index of the first occurrence of specified char
+    // after the specified index if found.
+    int first_in = str.indexOf('s', 10);
+    System.out.println("First occurrence of char 's'" +
+                       " after index 10 : " + first_in);
+
+    int last_in = str.lastIndexOf('s', 20);
+    System.out.println("Last occurrence of char 's'" +
+                     " after index 20 is : " + last_in);
+
+    // gives ASCII value of character at location 20
+    int char_at = str.charAt(20);
+    System.out.println("Character at location 20: " +
+                                             char_at);
+
+    // throws StringIndexOutOfBoundsException
+    // char_at = str.charAt(50);
+  }
+}
+Run on IDE
+Output:
+
+First occurrence of char 's' is found at : 4
+Last occurrence of char 's' is found at : 28
+First occurrence of char 's' after index 10 : 12
+Last occurrence of char 's' after index 20 is : 15
+Character at location 20: 111
+Searching Substring in the String
+
+The methods used for searching a character in the string which are mentioned above can also be used for searching the substring in the string.
+// Java program to illustrate to find a substring
+// in the string.
+import java.io.*;
+
+class GFG
+{
+  public static void main (String[] args)
+  {
+    // This is a string in which a substring
+    // is to be searched.
+    String str = "GeeksforGeeks is a computer science portal";
+
+    // Returns index of first occurrence of substring
+    int firstIndex = str.indexOf("Geeks");
+    System.out.println("First occurrence of char Geeks"+
+               " is found at : " + firstIndex);
+
+    // Returns index of last occurrence
+    int lastIndex = str.lastIndexOf("Geeks");
+    System.out.println("Last occurrence of char Geeks is"+
+               " found at : " + lastIndex);
+
+    // Index of the first occurrence
+    // after the specified index if found.
+    int first_in = str.indexOf("Geeks", 10);
+    System.out.println("First occurrence of char Geeks"+
+               " after index 10 : " + first_in);
+
+    int last_in = str.lastIndexOf("Geeks", 20);
+    System.out.println("Last occurrence of char Geeks " +
+               "after index 20 is : " + last_in);
+  }
+}
+Run on IDE
+Output:
+
+First occurrence of char Geeks is found at : 0
+Last occurrence of char Geeks is found at : 8
+First occurrence of char Geeks after index 10 : -1
+Last occurrence of char Geeks after index 20 is : 8
+contains(CharSequence seq): It returns true if the String contains the specified sequence of char values otherwise returns false. Its parameters specify sequence of character to be searched and throws NullPointer exception if seq is null.
+public boolean contains(CharSequence seq)
+Note: CharSequence is an interface that is implemented by String class, Therefore we use string as an argument in contains() method.
+
+// Java program to illustrate how to find a substring
+// in the string using contains
+import java.io.*;
+import java.lang.*;
+
+class GFG
+{
+  public static void main (String[] args)
+  {
+    // This is a string in which substring
+    // to be searched.
+    String test = "software";
+
+    CharSequence seq = "soft";
+    boolean bool = test.contains(seq);
+    System.out.println("Found soft?: " + bool);
+
+    // it returns true substring if found.
+    boolean seqFound = test.contains("war");
+    System.out.println("Found war? " + seqFound);
+
+    // it returns true substring if found otherwise
+    // return false.
+    boolean sqFound = test.contains("wr");
+    System.out.println("Found wr?: " + sqFound);
+  }
+}
